@@ -53,11 +53,11 @@ y_test = np.asarray( y_test )
 print( "np.shape( X_test ) = ", np.shape( X_test ) )
 print( "np.shape( y_test ) = ", np.shape( y_test ) )
 
-X_train = X_train.reshape(4200,1000).astype('float32')
-y_train = y_train.reshape(1,4200).astype('float32')
+X_train = X_train.reshape(3500,1000).astype('float32')
+y_train = y_train.reshape(1,3500).astype('float32')
 
-X_test = X_test.reshape(4200,1000).astype('float32')
-y_test = y_test.reshape(1,4200).astype('float32')
+X_test = X_test.reshape(700,1000).astype('float32')
+y_test = y_test.reshape(1,700).astype('float32')
 
 print( "X_train.shape = ", X_train.shape )
 print( "y_train.shape = ", y_train.shape )
