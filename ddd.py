@@ -1,4 +1,3 @@
-
 import csv
 
 import keras
@@ -108,5 +107,3 @@ model.add(Dense((29), activation='softmax'))
 model.summary()
 model.compile( loss='mean_squared_error', optimizer=SGD(lr=0.01), metrics=['accuracy'])
 model.fit( X_train, y_train, batch_size=128, epochs=20, validation_data=(X_test, y_test))
-
-
