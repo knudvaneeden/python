@@ -1,3 +1,4 @@
+
 import csv
 
 import keras
@@ -102,8 +103,80 @@ print( "y_train[0] = ", y_train[0] )
 print( "y_test[0] = ", y_test[0] )
 
 model = Sequential()
-model.add(Dense((64), activation='sigmoid', input_shape=(1000,)))
+#
+model.add(Dense((64), activation='relu', input_shape=(1000,)))
+# model.add(Dense((64), activation='tanh', input_shape=(1000,)))
+# model.add(Dense((64), activation='sigmoid', input_shape=(1000,)))
+#
 model.add(Dense((29), activation='softmax'))
 model.summary()
-model.compile( loss='mean_squared_error', optimizer=SGD(lr=0.01), metrics=['accuracy'])
+#
+model.compile( loss='categorical_crossentropy', optimizer=SGD(lr=0.01), metrics=['accuracy'])
+# model.compile( loss='mean_squared_error', optimizer=SGD(lr=0.01), metrics=['accuracy'])
+#
 model.fit( X_train, y_train, batch_size=128, epochs=20, validation_data=(X_test, y_test))
+
+#
+# generate predictions on new data // see https://keras.io
+#
+classes = model.predict( X_test, batch_size = 128 )
+print( classes )
+#
+# The highest value is to be found in the entry of number 1. So that is the prediction.
+#
+# Change e.g.:
+#
+# * more iterations (=epochs),
+# * other function instead of sigmoid (=relu, tanh, ...)
+# * another cost function (e.g. cross entropy)
+#
+# e.g. disable / enable the relevant lines in the source code above (relu, ...).
+#
+def FNArrayGetIndexMaximumI( list ):
+ maximum = 0
+ value = 0
+ I = 0
+ indexI = 0
+ for I, value in enumerate( list ):
+  if ( value > maximum ):
+   maximum = value
+   indexI = I
+ return( indexI )
+#
+# check the first predicted values
+#
+print( " " )
+print( classes[0] )
+print( y_test[0] )
+print( np.amax( classes[0] ) )
+print( "the prediction of the neural network is that the most probable result = ", FNArrayGetIndexMaximumI( classes[ 0 ] ) )
+#
+print( " " )
+print( classes[1] )
+print( y_test[1] )
+print( np.amax( classes[1] ) )
+print( "the prediction of the neural network is that the most probable result = ", FNArrayGetIndexMaximumI( classes[ 1 ] ) )
+#
+print( " " )
+print( classes[2] )
+print( y_test[2] )
+print( np.amax( classes[2] ) )
+print( "the prediction of the neural network is that the most probable result = ", FNArrayGetIndexMaximumI( classes[ 2 ] ) )
+#
+# should be 12
+#
+print( " " )
+print( classes[31] )
+print( y_test[31] )
+print( np.amax( classes[31] ) )
+print( "the prediction of the neural network is that the most probable result = ", FNArrayGetIndexMaximumI( classes[ 31 ] ) )
+#
+for I in range( 0, 40 ):
+ print ( I )
+ print( " " )
+ print( classes[ I ] )
+ print( y_test[ I ] )
+ print( np.amax( classes[ I ] ) )
+ print( "the prediction of the neural network is that the most probable result = ", FNArrayGetIndexMaximumI( classes[ I ] ) )
+
+
