@@ -74,13 +74,13 @@ max_X_train = np.amax( X_train )
 max_y_train = np.amax( y_train )
 
 X_train /= max_X_train
-# y_train /= max_y_train
+y_train /= max_y_train
 
 max_X_test = np.amax( X_test )
 max_y_test = np.amax( y_test )
 
 X_test /= max_X_test
-# y_test /= max_y_test
+y_test /= max_y_test
 
 print( "X_train[0] = ", X_train[0] )
 print( "y_train[0:99] = ", y_train[0:99] )
@@ -97,8 +97,8 @@ print( "y_train[0:99] = ", y_train[0:99] )
 
 
 
-# y_train = y_train.flat
-# y_test = y_test.flat
+y_train = y_train.flat
+y_test = y_test.flat
 
 print( "np.shape( X_train ) = ", np.shape( X_train ) )
 print( "np.shape( y_train ) = ", np.shape( y_train ) )
