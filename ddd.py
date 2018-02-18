@@ -56,13 +56,13 @@ y_test = np.array( y_test )
 y_test = y_test.reshape(1,700).astype('int')
 y_test = y_test[ 0 ]
 
-#---------------
 # debug begin
-# print ( y_test )
-# print( type( y_test ) )
-# print( y_test.shape )
-# print( type( y_test ).__name__ )
-# exit()
+print ( y_test ) # array
+print( type( y_test ) ) # type
+print( y_test.shape ) # dimensions
+print( y_test.ndim ) # total number of dimensions
+print( type( y_test ).__name__ ) # typicall returns ndarray
+exit()
 # debug end
 #---------------
 
