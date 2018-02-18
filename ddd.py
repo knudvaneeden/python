@@ -55,6 +55,17 @@ for row in dataReader:
 y_test = np.array( y_test )
 y_test = y_test.reshape(1,700).astype('int')
 y_test = y_test[ 0 ]
+
+#---------------
+# debug begin
+# print ( y_test )
+# print( type( y_test ) )
+# print( y_test.shape )
+# print( type( y_test ).__name__ )
+# exit()
+# debug end
+#---------------
+
 #
 n_classes = 29
 y_train = keras.utils.to_categorical( y_train, n_classes)
@@ -81,9 +92,9 @@ model.compile( loss='categorical_crossentropy', optimizer=SGD(lr=0.01), metrics=
 tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 #
 # model.fit( X_train, y_train, batch_size=128, epochs=20, validation_data=(X_test, y_test))
-model.fit( X_train, y_train, batch_size=128, epochs=20 )
+model.fit( X_train, y_train, batch_size=1000, epochs=20 )
 #
-classes = model.predict( X_test, batch_size = 128 )
+classes = model.predict( X_test, batch_size = 1000 )
 #
 def FNArrayGetIndexMaximumI( list ):
  maximum = 0
