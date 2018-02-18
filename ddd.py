@@ -97,15 +97,15 @@ print( "y_train[0:99] = ", y_train[0:99] )
 
 
 
-# y_train = y_train.flat
-# y_test = y_test.flat
+y_train = y_train.flat
+y_test = y_test.flat
 
 print( "np.shape( X_train ) = ", np.shape( X_train ) )
 print( "np.shape( y_train ) = ", np.shape( y_train ) )
 print( "np.shape( X_test ) = ", np.shape( X_test ) )
 print( "np.shape( y_test ) = ", np.shape( y_test ) )
 
-# convert the given 0..29 or thus totally 1 + 29 = 30 classes into one-hot-encoded representations
+# convert the given 0..28 or thus totally 1 + 28 = 29 classes into one-hot-encoded representations
 # E.g. the single digit 5 becomes ( 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
 # You do this for both the trainings output as well as for the test output.
 
@@ -113,8 +113,8 @@ n_classes = 29
 y_train = keras.utils.to_categorical( y_train, n_classes)
 y_test = keras.utils.to_categorical( y_test, n_classes)
 
-print( "y_train[0] = ", y_train[0] )
 print( "y_test[0] = ", y_test[0] )
+print( "y_train[0] = ", y_train[0] )
 
 model = Sequential()
 #
