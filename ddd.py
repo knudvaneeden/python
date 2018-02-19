@@ -7,12 +7,10 @@ import numpy
 # fix random seed for reproducibility
 numpy.random.seed(7)
 # load pima indians dataset
-dataset = numpy.loadtxt("ddd11.csv", delimiter=",")
+dataset = numpy.loadtxt("ddd.csv", delimiter=",")
 # split into input (X) and output (Y) variables
 X_train = dataset[:,0:1000]
-dataset = numpy.loadtxt("ddd12.csv", delimiter=",")
-# split into input (X) and output (Y) variables
-y_train = dataset[0:3500]
+y_train = dataset[:,1000]
 # create model
 model = Sequential()
 model.add(Dense(12, input_dim=1000, activation='relu'))
@@ -28,5 +26,7 @@ print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 # calculate predictions
 predictions = model.predict(X_train)
 # round predictions
-rounded = [round(x[0]) for x in predictions]
+rounded = [ x[0] for x in predictions]
+rounded = numpy.multiply( rounded, 100 )
+rounded = numpy.round( rounded, decimals=0, out=None )
 print(rounded)
