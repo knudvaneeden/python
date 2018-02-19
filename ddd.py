@@ -29,4 +29,5 @@ predictions = model.predict(X_train)
 rounded = [ x[0] for x in predictions]
 rounded = numpy.multiply( rounded, 100 )
 rounded = numpy.round( rounded, decimals=0, out=None )
+numpy.set_printoptions( threshold=numpy.inf )
 print(rounded)
