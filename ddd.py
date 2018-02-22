@@ -7,13 +7,13 @@ import numpy
 # fix random seed for reproducibility
 numpy.random.seed(7)
 # load pima indians dataset
-dataset = numpy.loadtxt("ddd.csv", delimiter=",")
+dataset = numpy.loadtxt("ddd00.csv", delimiter=",")
 # split into input (X) and output (Y) variables
-X_train = dataset[:,0:1000]
-y_train = dataset[:,1000]
+X_train = dataset[:,0:7036]
+y_train = dataset[:,7036]
 # create model
 model = Sequential()
-model.add(Dense(12, input_dim=1000, activation='relu'))
+model.add(Dense(12, input_dim=7036, activation='relu'))
 model.add(Dense(8, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 # Compile model
